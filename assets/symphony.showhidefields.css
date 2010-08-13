@@ -1,0 +1,16 @@
+.settings .button {
+	font-size: 10px;
+}
+
+.settings .label {
+	padding-bottom: 15px;
+}
+
+.hidden {
+	display: none;
+}
+
+.duplicator .instance .header .destructor.visibility {
+	right: 55px;
+}
+
