@@ -1,4 +1,4 @@
-# Zen Coding
+# Show/Hide Fields
 
 Lets you collapse/expand fields inside the section editor
 
