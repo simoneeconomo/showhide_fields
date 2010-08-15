@@ -14,61 +14,55 @@ jQuery(document).ready(function(){
   });
 
 /*-------------------------------------------------------------------------
-    Dinamically-added elements and common selectors
+    Dinamically-added elements
   -------------------------------------------------------------------------*/
 
   elements = {
     button:     $('<a class=\'button\' />').text(Symphony.Language.get('Collapse all')),
-    link:       $('<a class=\'destructor visibility\' />').text(Symphony.Language.get('Collapse'))
-  };
-
-  selectors = {
-    instances:  $('#fields-duplicator li'),
+    link:       $('<a class=\'visibility\' />').attr('title', Symphony.Language.get('Collapse')).text('-')
   };
 
 /*-------------------------------------------------------------------------
     Elements insertion
   -------------------------------------------------------------------------*/
 
-  selectors['instances'].find('h4').each(function(){
-    $(this).append(elements['link'].clone());
-  });
-
-  $('.settings .label').append(elements['button']);
+  $('.instance h4').append(elements['link'].clone());
+  $('.settings .label').append(elements['button'].clone());
+  $('.settings .duplicator').after(elements['button']);
 
 /*-------------------------------------------------------------------------
     Events handling
   -------------------------------------------------------------------------*/
 
-  $('.visibility').live('click', function() {
+  buttons = $('.settings .button');
 
+  $('.visibility').live('click', function() {
     instance = $(this).closest('li');
 
     if (instance.hasClass('collapsed'))
-      $(this).text(Symphony.Language.get('Collapse'));
+      $(this).attr('title', Symphony.Language.get('Collapse')).text('-');
     else
-      $(this).text(Symphony.Language.get('Expand'));
+      $(this).attr('title', Symphony.Language.get('Expand')).text('+');
 
     instance.toggleClass('collapsed');
-    instance.find('> *:not(h4)').toggleClass('hidden');
+    instance.find('.content').toggleClass('hidden');
   });
 
-  elements['button'].click(function () {
-    $(this).toggleClass('collapsed');
+  buttons.click(function () {
+    if ($(this).hasClass('collapsed')) {
+      buttons.text(Symphony.Language.get('Collapse all'));
+      $('.instance.collapsed .visibility').click();
+    }
+    else {
+      buttons.text(Symphony.Language.get('Expand all'));
+      $('.instance:not(.collapsed) .visibility').click();
+    }
 
-    $(this).text(function() {
-      if ($(this).hasClass('collapsed'))
-        return Symphony.Language.get('Expand all');
-      else
-        return Symphony.Language.get('Collapse all');
-    });
-
-    $('.visibility').trigger('click');
-
+    buttons.toggleClass('collapsed');
   });
 
   $('.constructor').bind('click', function() {
-    $('#fields-duplicator li:last h4').append(elements['link'].clone());
+    $('.instance:last h4').append(elements['link'].clone());
   });
 
 });

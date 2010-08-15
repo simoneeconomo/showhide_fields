@@ -1,6 +1,6 @@
 <?php
 
-	Class extension_collapse_fields extends Extension{
+	Class extension_showhide_fields extends Extension{
 
 		public function about(){
 			return array('name' => 'Show/Hide Fields',
@@ -31,8 +31,8 @@
 			$callback = $context['parent']->getPageCallback();
 
 			if ($this->__isSectionEditor($callback)) {
-				$context['parent']->Page->addStylesheetToHead(URL . '/extensions/collapse_fields/assets/symphony.showhidefields.css', 'screen', 1000);
-				$context['parent']->Page->addScriptToHead(URL . '/extensions/collapse_fields/assets/symphony.showhidefields.js', 1000, false);
+				$context['parent']->Page->addStylesheetToHead(URL . '/extensions/showhide_fields/assets/showhidefields.css', 'screen', 1000);
+				$context['parent']->Page->addScriptToHead(URL . '/extensions/showhide_fields/assets/showhidefields.js', 1000, false);
 			}
 		}
 
