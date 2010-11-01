@@ -2,9 +2,9 @@
 
 Lets you collapse/expand fields in the section editor
 
-- Version: 0.1
+- Version: 0.1.1
 - Author: Simone Economo, my.ekoes@gmail.com
-- Build Date: 14th August 2010
+- Build Date: 1st November 2010
 - Requirements: Symphony CMS 2.0.7+
 
 ## Installation

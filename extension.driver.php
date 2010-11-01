@@ -4,8 +4,7 @@
 
 		public function about(){
 			return array('name' => 'Show/Hide Fields',
-						 'version' => '0.1',
-						 'release-date' => '2010-08-14',
+						 'version' => '0.1.1',
 						 'author' => array('name' => 'Simone Economo',
 										   'website' => 'http://www.lineheight.net',
 										   'email' => 'my.ekoes@gmail.com'),
